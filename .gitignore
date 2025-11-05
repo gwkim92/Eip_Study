@@ -1,1 +1,56 @@
-/.claude
+# Dependencies
+node_modules/
+lib/
+cache/
+out/
+
+# Compiler artifacts
+*.sol.js
+*.sol.d.ts
+artifacts/
+build/
+typechain/
+typechain-types/
+
+# Build outputs
+dist/
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+coverage.json
+.coverage_cache/
+.coverage_contracts/
+
+# Hardhat
+cache_hardhat/
+typechain-types-hardhat/
+
+# Foundry
+cache_forge/
+broadcast/
+
+# Other
+*.pyc
+__pycache__/
+.pytest_cache/

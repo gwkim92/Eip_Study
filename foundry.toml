@@ -1,0 +1,61 @@
+# Foundry Configuration
+# https://book.getfoundry.sh/config/
+
+[profile.default]
+src = "eips"
+out = "out"
+libs = ["lib"]
+test = "test"
+cache_path = "cache"
+
+# Compiler settings
+solc_version = "0.8.20"
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+bytecode_hash = "none"
+
+# EVM version
+evm_version = "shanghai"
+
+# Formatter settings
+[fmt]
+line_length = 120
+tab_width = 4
+bracket_spacing = true
+int_types = "long"
+multiline_func_header = "all"
+quote_style = "double"
+number_underscore = "preserve"
+
+# RPC endpoints (optional, for testing)
+[rpc_endpoints]
+mainnet = "${MAINNET_RPC_URL}"
+sepolia = "${SEPOLIA_RPC_URL}"
+goerli = "${GOERLI_RPC_URL}"
+
+# Etherscan API key (optional, for verification)
+[etherscan]
+mainnet = { key = "${ETHERSCAN_API_KEY}" }
+sepolia = { key = "${ETHERSCAN_API_KEY}" }
+
+# Gas reporting
+[profile.default.fuzz]
+runs = 256
+max_test_rejects = 65536
+
+[profile.default.invariant]
+runs = 256
+depth = 15
+fail_on_revert = false
+
+# CI profile (more thorough testing)
+[profile.ci]
+fuzz = { runs = 5000 }
+invariant = { runs = 1000 }
+
+# Remappings for common libraries
+remappings = [
+    "@openzeppelin/=lib/openzeppelin-contracts/",
+]
+
